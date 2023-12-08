@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: "Courier New", Courier, monospace;
+        text-align: center;
+      }
+      button {
+        padding: 2rem;
+        font-size: 16px;
+      }
+    </style>
+    <title>Network</title>
+  </head>
+  <body>
+    <h1>Verify Type Network</h1>
+    <button id="btn" onclick="startWorker()">GO</button>
+
+    <div id="result-wrapper" style="display: none">
+      <strong> Reload to verify 🔃</strong>
+      <br />
+      <br />
+      Type Network:
+      <output id="result"></output>
+    </div>
+
+    <p>
+      <strong>Note:</strong> Internet Explorer 9, browsers based on iOS and
+      safari and earlier versions do not support this feature.
+    </p>
+
+    <script>
+      var w;
+
+      function startWorker() {
+        const btn = document.getElementById("btn");
+        const wrapper = document.getElementById("result-wrapper");
+        const output = document.getElementById("result");
+        if (typeof Worker !== "undefined") {
+          if (typeof w === "undefined") {
+            w = new Worker("worker.js");
+          }
+          w.onmessage = function (event) {
+            btn.style.display = "none";
+            wrapper.style.display = "block";
+            output.innerHTML = event.data;
+          };
+        } else {
+          output.getElementById("result").innerHTML =
+            "Sorry, your browser does not support Web Workers...";
+        }
+      }
+    </script>
+  </body>
+</html>
