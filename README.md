@@ -1,3 +1,5 @@
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmJ3ajRlYTUzbnU1cm40ZmtyMGhwaWJ3MDZwaWMzOXgwNjhqcTE0ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Q2Coq9BYwOgYltkpo3/giphy.gif" />
+
 # Verify Type Network Connection
 POC using navigator.connection.type web workers for verify network type. Only works in mobile devices.
 
